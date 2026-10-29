@@ -1,0 +1,14 @@
+# Render Blueprint: one Docker web service serves the built client and the game sockets.
+# Rooms live in memory, so this must stay a single instance.
+services:
+  - type: web
+    name: plague
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      # Render sits in front as a reverse proxy: per-IP limits must read X-Forwarded-For.
+      - key: TRUST_PROXY
+        value: "1"

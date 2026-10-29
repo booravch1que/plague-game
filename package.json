@@ -1,0 +1,27 @@
+{
+  "name": "plague",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Real-time multiplayer survival and social deduction game for 5-10 players.",
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "pnpm -r --if-present typecheck",
+    "lint": "eslint .",
+    "test": "pnpm -r --if-present test",
+    "build": "pnpm --filter @plague/web build",
+    "dev": "pnpm -r --parallel --filter @plague/server --filter @plague/web dev",
+    "start": "pnpm --filter @plague/server start"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.0",
+    "eslint": "^9.17.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.18.0"
+  }
+}
